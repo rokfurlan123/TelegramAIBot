@@ -11,8 +11,9 @@ namespace TelegramAIBot.AzureFunctions
 {
     public static class ChatGptClient
     {
-        private static string OpenAIToken = "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";
-        private static readonly OpenAIClient ApiClient = new OpenAIClient(OpenAIToken);
+        private static readonly OpenAIClient ApiClient = new OpenAIClient(ConfigSettings.ChatGptKey);
+        public static readonly Model Model3_5_Turbo_16K = Model.GPT3_5_Turbo_16K;
+        public static readonly Model Model4_32K = Model.GPT4_32K;
         
         public async static Task<string> GetGptResponseModel(string message, Model model)
         {
